@@ -9,8 +9,8 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-        sudo docker build -t bao315/cicdtest:purple .
-        sudo docker push bao315/cicdtest:purple
+        sudo docker build -t bao315/keduitlab:purple .
+        sudo docker push bao315/keduitlab:purple
         '''
       }
     }
