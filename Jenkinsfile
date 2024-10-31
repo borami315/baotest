@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Deploy Docker Image on Master') {
-        git url: 'https://github.com/beomtaek78/jenkinstest.git', branch: 'main'
+        git url: 'https://github.com/borami315/baotest.git', branch: 'main'
       }
       steps {
         sh '''
