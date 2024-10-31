@@ -4,7 +4,7 @@
   tasks:
     - name: docker -> master
       copy:
-        src: "/var/lib/jenkins/workspace/test1"
+        src: "/var/lib/jenkins/workspace/test1/Dockerfile"
         dest: "/root/"
         
     - name: Log in to Docker Hub
