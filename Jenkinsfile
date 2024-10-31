@@ -5,7 +5,7 @@ pipeline {
       steps {
         git url: 'https://github.com/borami315/baotest.git', branch: 'main'
         sh '''
-        ansible-playbook ./playbook.yml
+          ansible-playbook ./playbook.yml
         '''
       }
     }
