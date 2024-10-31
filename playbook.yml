@@ -8,7 +8,7 @@
         dest: "/root/"
         
     - name: Log in to Docker Hub
-      shell: "docker login -u bao315 -p gjqhfka123!"
+      shell: "docker login -u bao315 -p gjqhfka123"
 
     - name: Build Docker image
       shell: "docker build -t bao315/keduitlab:puple /root/"
