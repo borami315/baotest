@@ -2,7 +2,7 @@
 - name: Build and Push Docker image on Master
   hosts: master
   tasks:
-    - nmae: docker -> master
+    - name: docker -> master
       copy:
         src: "/var/lib/jenkins/workspace/test1"
         dest: "/root/"
