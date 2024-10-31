@@ -7,6 +7,11 @@
         src: "/var/lib/jenkins/workspace/test1/Dockerfile"
         dest: "/root/"
         
+    - name: index.html -> master
+      copy:
+        src: "/var/lib/jenkins/workspace/test1/index.html"
+        dest: "/root/"
+        
     - name: Log in to Docker Hub
       shell: "docker login -u bao315 -p gjqhfka123"
 
