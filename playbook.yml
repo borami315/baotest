@@ -26,4 +26,6 @@
 
 
     - name: Expose Service on Kubernetes
-      shell: "kubectl expose deploy web-puple --type=LoadBalancer --port=80 --target-port=80 --name=web-puple-svc"
+      shell: "kubectl expose deploy web-puple --type NodePort --port 80 --name=web-puple-svc1"
+     
+     
