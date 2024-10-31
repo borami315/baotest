@@ -11,7 +11,7 @@
       shell: "docker login -u bao315 -p gjqhfka123"
 
     - name: Build Docker image
-      shell: "docker build -t bao315/keduitlab:puple /root/"
+      shell: "docker build -t bao315/keduitlab:puple /root/Dockerfile"
 
     - name: Push Docker image to Docker Hub
       shell: "docker push bao315/keduitlab:puple"
