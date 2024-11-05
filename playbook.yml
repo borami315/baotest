@@ -1,31 +1,34 @@
 ---
 - name: Build and Push Docker image on Master
-  hosts: master
-  tasks:
-    - name: docker -> master
+  hosts: master             
+  gather_facts: false        
+  tasks:    
+    - name: Dockerfile
       copy:
-        src: "/var/lib/jenkins/workspace/test1/Dockerfile"
-        dest: "/root/"
+        src: /var/lib/jenkins/workspace/wonjune/Dockerfile
+        dest: /root
         
-    - name: index.html -> master
+    - name: Index.html
       copy:
-        src: "/var/lib/jenkins/workspace/test1/index.html"
-        dest: "/root/"
-        
+        src: /var/lib/jenkins/workspace/wonjune/index.html
+        dest: /root
+ 
     - name: Log in to Docker Hub
-      shell: "docker login -u bao315 -p gjqhfka123"
+      command: docker login -u bao315 -p gjqhfka123
 
-    - name: Build Docker image
-      shell: "docker build -t bao315/keduitlab:puple /root/"
+    - name: Docker build
+      command: docker build -t bao315/keduitlab:purple /root
 
-    - name: Push Docker image to Docker Hub
-      shell: "docker push bao315/keduitlab:puple"
+    - name: Docker Push
+      command: docker push bao315/keduitlab:purple
 
     - name: Deploy to Kubernetes
-      shell: "kubectl create deploy web-puple --replicas=3 --port=80 --image=bao315/keduitlab:puple"
-
+      command: kubectl create deploy web-purple --replicas=3 --port=80 --image=bao315/keduitlab:purple
+        
 
     - name: Expose Service on Kubernetes
-      shell: "kubectl expose deploy web-puple --type NodePort --port 80 --name=web-puple-svc1"
-     
+      command: kubectl expose deploy web-purple --type=LoadBalancer --port=80 --target-port=80 --name=web-purple-svc
+
+
+
      
