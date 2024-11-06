@@ -5,13 +5,13 @@
   tasks:    
     - name: Dockerfile
       copy:
-        src: /home/user1/Dockerfile
+        src: /var/lib/jenkins/workspace/test123/Dockerfile
         dest: /root
         remote_src: yes
         
     - name: Index.html
       copy:
-        src: /home/user1/index.html
+        src: /var/lib/jenkins/workspace/test123/index.html
         dest: /root
         remote_src: yes
  
