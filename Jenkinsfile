@@ -4,7 +4,7 @@ pipeline {
     # Git 저장소 복사
     stage('Clone Git Repository') {
       steps {
-        git url: 'https://github.com/wonjune95/jenkinstest.git', branch: 'main'
+        git url: 'https://github.com/borami315/baotest.git', branch: 'main'
       }
     }
     stage('Deploy Docker Image on Master') {
