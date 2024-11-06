@@ -7,11 +7,13 @@
       copy:
         src: /home/user1/Dockerfile
         dest: /root
+        remote_src: yes
         
     - name: Index.html
       copy:
         src: /home/user1/index.html
         dest: /root
+        remote_src: yes
  
     - name: Log in to Docker Hub
       command: docker login -u bao315 -p gjqhfka123
