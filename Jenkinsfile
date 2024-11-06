@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    # Git 저장소 복사
+   
     stage('Clone Git Repository') {
       steps {
         git url: 'https://github.com/borami315/baotest.git', branch: 'main'
