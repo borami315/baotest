@@ -5,12 +5,12 @@
   tasks:    
     - name: Dockerfile
       copy:
-        src: /home/user1/Dockerfile
+        src: /root/Dockerfile
         dest: /root
         
     - name: Index.html
       copy:
-        src: /home/user1/index.html
+        src: /root/index.html
         dest: /root
  
     - name: Log in to Docker Hub
