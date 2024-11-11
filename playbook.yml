@@ -7,14 +7,18 @@
     - name: Dockerfile
       copy:
         src: /var/lib/jenkins/workspace/test123/Dockerfile
-        dest: /root
+        dest: /root/Dockerfile
        
         
     - name: Index.html
       copy:
         src: /var/lib/jenkins/workspace/test123/index.html
-        dest: /root
+        dest: /root/index.html
         
+     - name: copy manifast file
+      copy:
+        src: /var/lib/jenkins/workspace/test123/test-deploy.yml
+        dest: /root/test-deploy.yml
  
     - name: Log in to Docker Hub
       command: docker login -u bao315 -p gjqhfka123
@@ -26,11 +30,7 @@
       command: docker push bao315/keduitlab:test12345
 
     - name: Deploy to Kubernetes
-      command: kubectl create deploy web-test12345 --replicas=3 --port=80 --image=bao315/keduitlab:test12345
-        
-
-    - name: Expose Service on Kubernetes
-      command: kubectl expose deploy web-test12345 --type=LoadBalancer --port=80 --target-port=80 --name=web-test12345-svc
+      shell: kubectl apply -f /root/test-deploy.yml
 
 
 
