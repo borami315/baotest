@@ -1,17 +1,18 @@
 ---
 - name: Build and Push Docker image on Master
   hosts: master             
-  gather_facts: false        
+  gather_facts: false
+  become: true
   tasks:    
     - name: Dockerfile
       copy:
-        src: /var/lib/jenkins/workspace/test12345/Dockerfile
+        src: /var/lib/jenkins/workspace/test123/Dockerfile
         dest: /root
        
         
     - name: Index.html
       copy:
-        src: /var/lib/jenkins/workspace/test12345/index.html
+        src: /var/lib/jenkins/workspace/test123/index.html
         dest: /root
         
  
@@ -19,7 +20,7 @@
       command: docker login -u bao315 -p gjqhfka123
 
     - name: Docker build
-      command: docker build -t bao315/keduitlab:test12345 /root
+      command: docker build -t bao315/keduitlab:test12345 /root/.
 
     - name: Docker Push
       command: docker push bao315/keduitlab:test12345
