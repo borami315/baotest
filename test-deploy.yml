@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-test01
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-test
+  template:
+    metadata:
+      labels:
+        app: web-test
+    spec:
+      containers:
+      - name: ctn-test
+        image: bao315/keduitlab:test12345
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "125m"
