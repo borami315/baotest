@@ -6,17 +6,17 @@
   tasks:
     - name: Dockerfile
       copy:
-        src: /var/lib/jenkins/workspace/test123/Dockerfile
+        src: /var/lib/jenkins/workspace/test123@2/Dockerfile
         dest: /root/Dockerfile
 
     - name: Index.html
       copy:
-        src: /var/lib/jenkins/workspace/test123/index.html
+        src: /var/lib/jenkins/workspace/test123@2/index.html
         dest: /root/index.html
 
     - name: Copy manifest file
       copy:
-        src: /var/lib/jenkins/workspace/test123/test-deploy.yml
+        src: /var/lib/jenkins/workspace/test123@2/test-deploy.yml
         dest: /root/test-deploy.yml
 
     - name: Log in to Docker Hub
