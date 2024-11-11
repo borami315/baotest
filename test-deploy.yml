@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,3 +20,17 @@ spec:
           limits:
             memory: "64Mi"
             cpu: "125m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-lb
+spec:
+  selector:
+    app: web-test
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+
