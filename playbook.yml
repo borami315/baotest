@@ -5,13 +5,13 @@
   tasks:    
     - name: Dockerfile
       copy:
-        src: /var/lib/jenkins/workspace/test1234/Dockerfile
+        src: /var/lib/jenkins/workspace/test12345/Dockerfile
         dest: /root
        
         
     - name: Index.html
       copy:
-        src: /var/lib/jenkins/workspace/test1234/index.html
+        src: /var/lib/jenkins/workspace/test12345/index.html
         dest: /root
         
  
@@ -19,17 +19,17 @@
       command: docker login -u bao315 -p gjqhfka123
 
     - name: Docker build
-      command: docker build -t bao315/keduitlab:test1234 /root
+      command: docker build -t bao315/keduitlab:test12345 /root
 
     - name: Docker Push
-      command: docker push bao315/keduitlab:test1234
+      command: docker push bao315/keduitlab:test12345
 
     - name: Deploy to Kubernetes
-      command: kubectl create deploy web-test1234 --replicas=3 --port=80 --image=bao315/keduitlab:test1234
+      command: kubectl create deploy web-test12345 --replicas=3 --port=80 --image=bao315/keduitlab:test12345
         
 
     - name: Expose Service on Kubernetes
-      command: kubectl expose deploy web-test1234 --type=LoadBalancer --port=80 --target-port=80 --name=web-test1234-svc
+      command: kubectl expose deploy web-test12345 --type=LoadBalancer --port=80 --target-port=80 --name=web-test12345-svc
 
 
 
