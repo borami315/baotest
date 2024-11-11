@@ -19,17 +19,17 @@
       command: docker login -u bao315 -p gjqhfka123
 
     - name: Docker build
-      command: docker build -t bao315/keduitlab:test123 /root
+      command: docker build -t bao315/keduitlab:test1234 /root
 
     - name: Docker Push
-      command: docker push bao315/keduitlab:test123
+      command: docker push bao315/keduitlab:test1234
 
     - name: Deploy to Kubernetes
-      command: kubectl create deploy web-test123 --replicas=3 --port=80 --image=bao315/keduitlab:test123
+      command: kubectl create deploy web-test1234 --replicas=3 --port=80 --image=bao315/keduitlab:test1234
         
 
     - name: Expose Service on Kubernetes
-      command: kubectl expose deploy web-test123 --type=LoadBalancer --port=80 --target-port=80 --name=web-test123-svc
+      command: kubectl expose deploy web-test1234 --type=LoadBalancer --port=80 --target-port=80 --name=web-test1234-svc
 
 
 
