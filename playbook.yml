@@ -1,25 +1,24 @@
 ---
 - name: Build and Push Docker image on Master
-  hosts: master             
+  hosts: master
   gather_facts: false
   become: true
-  tasks:    
+  tasks:
     - name: Dockerfile
       copy:
         src: /var/lib/jenkins/workspace/test123/Dockerfile
         dest: /root/Dockerfile
-       
-        
+
     - name: Index.html
       copy:
         src: /var/lib/jenkins/workspace/test123/index.html
         dest: /root/index.html
-        
-     - name: copy manifast file
+
+    - name: Copy manifest file
       copy:
         src: /var/lib/jenkins/workspace/test123/test-deploy.yml
         dest: /root/test-deploy.yml
- 
+
     - name: Log in to Docker Hub
       command: docker login -u bao315 -p gjqhfka123
 
@@ -31,7 +30,3 @@
 
     - name: Deploy to Kubernetes
       shell: kubectl apply -f /root/test-deploy.yml
-
-
-
-     
